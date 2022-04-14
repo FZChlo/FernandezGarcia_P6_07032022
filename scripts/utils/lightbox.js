@@ -10,7 +10,7 @@
 
 function lightboxContent(title, source, type, id, lightbox) {
 
-    // Creatiion de la dive de la lightbox de fermeture
+    // Creatiion de la div de la lightbox de fermeture
     const close = document.createElement("button");
     close.setAttribute("aria-label", "close");
     close.classList.add("lightbox__close");
@@ -22,11 +22,11 @@ function lightboxContent(title, source, type, id, lightbox) {
     next.classList.add("lightbox__next");
     next.addEventListener("click", () => nextLightbox(source, id));
 
-    // Creation de la div de la lightbox suivante
+    // Creation de la div de la lightbox precedente
     const prev = document.createElement("button");
     prev.setAttribute("aria-label", "prev");
     prev.classList.add("lightbox__prev");
-    prev.addEventListener("click", () => nextLightbox(source, id));
+    prev.addEventListener("click", () => prevLightbox(source, id));
 
     // Ecouteur d'évenement des touches clavier
     document.addEventListener("keydown", keydown, false);
@@ -42,11 +42,11 @@ function lightboxContent(title, source, type, id, lightbox) {
         document.removeEventListener("keydown", keydown, false); // Evite la redondance
     }
 
-    // Creation de la div de la lightbox de l'image
+    // Creation de la div de la lightbox 
     const container = document.createElement("div");
     container.classList.add("lightbox__container");
 
-    // Creation de l'image ou la video
+    // Ajout de l'image ou la video
     const content =
         type == "image" ?
         document.createElement("img") :
@@ -57,7 +57,7 @@ function lightboxContent(title, source, type, id, lightbox) {
     content.classList.add("thumbnail");
     content.setAttribute("alt", "image");
 
-    // Creation du titre de l'image
+    // Ajout du titre de l'image
     const titleText = document.createElement("h2");
     titleText.textContent = title;
 

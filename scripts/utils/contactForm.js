@@ -120,7 +120,7 @@ function checkEmail() {
     addInvisible(email);
     return true;
 }
-
+// Fonction de controle du message
 function checkMessage() {
     const messageValue = message.value.trim();
     if (messageValue === null || messageValue.length < 10) {

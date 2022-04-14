@@ -1,7 +1,7 @@
 function photographerFactory(data, mediaAll) {
     const { name, portrait, city, country, tagline, price, id, likes } = data;
     const picture = `assets/photographers/${portrait}`;
-
+    // INDEX.JS
     // Creation de cards de chaque photographe
     function getUserCardDOM() {
 
@@ -41,7 +41,7 @@ function photographerFactory(data, mediaAll) {
         article.appendChild(priceTag);
         return article;
     }
-
+    //PHOTOGRAPHER.JS
     // Fonction qui retourne le DOM de la page profil
     function getUserDetail() {
 
@@ -134,7 +134,7 @@ function photographerFactory(data, mediaAll) {
     };
 }
 
-// Fonction pour afficher les medias
+// Fonction pour afficher les photos + titres
 function mediaFactory(media, photographers) {
     const { title, image, video, likes, date, price, id } = media;
     let { name } = photographers[0];
@@ -163,6 +163,19 @@ function mediaFactory(media, photographers) {
         thumbnail.addEventListener("click", () => {
             showLightbox(title, source, type, id);
         });
+        thumbnail.addEventListener("keydown", (event) => {
+            if (event.defaultPrevented) {
+                return; // Ne devrait rien faire si l'événement de la touche était déjà consommé.
+            }
+            switch (event.key) {
+                case "Enter":
+                    showLightbox(title, source, type, id);
+                    break;
+                default:
+                    return;
+            }
+            event.preventDefault();
+        }, true);
         type == "image" &&
             thumbnail.setAttribute("alt", `Vignette de media : ${title}`);
         const desc = document.createElement("div");
@@ -183,7 +196,7 @@ function mediaFactory(media, photographers) {
         imageLike.classList.add("far");
         imageLike.classList.add("fa-heart");
 
-        // Lien qui permets l'apparition de la page profil
+
 
         article.appendChild(thumbnail);
         article.appendChild(desc);
@@ -194,6 +207,19 @@ function mediaFactory(media, photographers) {
         divLikes.addEventListener("click", () => {
             addLikes(likeTag, imageLike);
         });
+        divLikes.addEventListener("keydown", (event) => {
+            if (event.defaultPrevented) {
+                return; // Ne devrait rien faire si l'événement de la touche était déjà consommé.
+            }
+            switch (event.key) {
+                case "Enter":
+                    addLikes(likeTag, imageLike);
+                    break;
+                default:
+                    return;
+            }
+            event.preventDefault();
+        }, true);
 
         return article;
     }
