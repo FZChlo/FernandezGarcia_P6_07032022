@@ -32,6 +32,7 @@ function lightboxContent(title, source, type, id, lightbox) {
     document.addEventListener("keydown", keydown, false);
 
     function keydown(e) {
+
         if (e.code == "ArrowRight") {
             nextLightbox(source, id);
         } else if (e.code == "ArrowLeft") {
@@ -113,7 +114,7 @@ function closeLightbox() {
  * @param {string} id - identifiant de l'image
  */
 function nextLightbox(source, id) {
-    lightboxNextPrev(source, id, "next");
+    lightboxNextPrev(source, id, "prev");
 }
 
 /**
@@ -122,7 +123,7 @@ function nextLightbox(source, id) {
  * @param {string} id - identifiant de l'image
  */
 function prevLightbox(source, id) {
-    lightboxNextPrev(source, id, "prev");
+    lightboxNextPrev(source, id, "next");
 }
 
 /**

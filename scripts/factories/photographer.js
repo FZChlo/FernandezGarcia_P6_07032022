@@ -69,6 +69,7 @@ function photographerFactory(data, mediaAll) {
         const button = document.createElement("button");
         button.textContent = "Contactez moi";
         button.classList.add("contact_button");
+        button.setAttribute("tabindex", "2");
         button.setAttribute("type", "button");
         button.setAttribute("onclick", "displayModal()");
 
@@ -78,6 +79,7 @@ function photographerFactory(data, mediaAll) {
         img.setAttribute("alt", `Vignette de contact : ${name}`);
 
         // Je crée un lien qui va permettre l'apparition de la page profil
+
         article.appendChild(divGauche);
         article.appendChild(divCentre);
         article.appendChild(divDroite);
@@ -154,30 +156,35 @@ function mediaFactory(media, photographers) {
         // Balise article 
         const article = document.createElement("article");
 
+
+
         // Balise image/video
         let thumbnail = {};
         type == "image" ?
             (thumbnail = document.createElement("img")) :
             (thumbnail = document.createElement("video"));
         thumbnail.setAttribute("src", source);
+        thumbnail.setAttribute("tabindex", "4")
         thumbnail.addEventListener("click", () => {
             showLightbox(title, source, type, id);
         });
-        thumbnail.addEventListener("keydown", (event) => {
-            if (event.defaultPrevented) {
-                return; // Ne devrait rien faire si l'événement de la touche était déjà consommé.
+        thumbnail.addEventListener("keypress", function(e) {
+            if (e.key == "Enter") {
+                showLightbox(title, source, type, id);
+                lightboxNextPrev(source, id, option);
+                lightboxContent(title, source, type, id, lightbox);
+                nextLightbox(source, id);
+                prevLightbox(source, id);
+
+
             }
-            switch (event.key) {
-                case "Enter":
-                    showLightbox(title, source, type, id);
-                    break;
-                default:
-                    return;
-            }
-            event.preventDefault();
-        }, true);
+        });
+
+
+
         type == "image" &&
             thumbnail.setAttribute("alt", `Vignette de media : ${title}`);
+
         const desc = document.createElement("div");
 
         // Creation de la balise h2
@@ -188,21 +195,28 @@ function mediaFactory(media, photographers) {
         divLikes.classList.add("likes");
         divLikes.setAttribute("alt", `Nombres de likes : ${likes}`);
 
-        // Creation de la balise p 
+        // Creation de la balise span & p 
+        const spanCoeur = document.createElement("span");
         const likeTag = document.createElement("p");
         likeTag.textContent = likes;
-
+        spanCoeur.className = "coeur";
         const imageLike = document.createElement("i");
         imageLike.classList.add("far");
         imageLike.classList.add("fa-heart");
+        imageLike.setAttribute("aria-label", "icone coeur cliquable");
+        imageLike.setAttribute("tabindex", "5");
 
 
 
+
+        spanCoeur.appendChild(imageLike);
         article.appendChild(thumbnail);
         article.appendChild(desc);
         desc.appendChild(h2);
         desc.appendChild(divLikes);
+        desc.appendChild(spanCoeur);
         divLikes.appendChild(likeTag);
+        divLikes.appendChild(spanCoeur);
         divLikes.appendChild(imageLike);
         divLikes.addEventListener("click", () => {
             addLikes(likeTag, imageLike);
