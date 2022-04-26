@@ -204,7 +204,7 @@ function mediaFactory(media, photographers) {
         imageLike.classList.add("far");
         imageLike.classList.add("fa-heart");
         imageLike.setAttribute("aria-label", "icone coeur cliquable");
-        imageLike.setAttribute("tabindex", "5");
+        imageLike.setAttribute("tabindex", "4");
 
 
 
