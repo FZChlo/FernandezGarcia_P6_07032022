@@ -39,7 +39,7 @@
     justify-content: center;
     grid-template-columns: 1fr 1fr 1fr;
     gap: 40px;
-    margin-top: 100px;
+    margin-top: 50px;
 }
 
 .media-section article {
@@ -211,11 +211,40 @@ textarea {
     border-radius: 5px;
 }
 
+.sortbtn {
+    background-color: #901c1c;
+    font-size: 1rem;
+    padding: 2px 5px;
+    width: 10rem;
+    height: 3rem;
+    color: white;
+    font-size: 12px;
+    border-radius: 5px;
+}
+
 .selectMenu {
-    display: flex;
-    flex-direction: row;
+    position: flex;
+    display: block;
     margin-top: 3rem;
     margin-bottom: 3rem;
+}
+
+.sort {
+    display: none;
+    position: absolute;
+    background-color: #901c1c;
+    min-width: 120px;
+    z-index: 1;
+}
+
+.sort a {
+    color: white;
+    padding: 14px 18px;
+    display: block;
+}
+
+.sort a:hover {
+    background-color: grey;
 }
 
 .selectMenu label {

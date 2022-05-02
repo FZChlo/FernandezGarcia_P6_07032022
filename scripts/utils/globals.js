@@ -1,4 +1,4 @@
-// Trie des photos
+// Filtre de tri des photos
 document.querySelector("select").addEventListener("change", sort);
 
 function sort() {
