@@ -11,6 +11,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" />
     <link href="https://fonts.googleapis.com/css?family=DM+Sans&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous" />
+    <script src="https://kit.fontawesome.com/e94b4ac860.js" crossorigin="anonymous"></script>
     <title>Fisheye - photographe</title>
 </head>
 
@@ -23,12 +24,12 @@
     <main id="main" aria-label="Corps de la page">
         <div class="photograph-header"></div>
         <div class="selectMenu">
-            <label for="sort" id="sort">Trier par</label>
-            <select name="sort" id="sort" tabindex="3">
-            <option value="date" id="date" tabindex="3">Date</option>
-            <option value="popularité" id="popularité" tabindex="3">Popularité</option>
-            <option value="titre" id="titre" tabindex="3">Titre</option>
-            </select>
+            <button class="sortbtn" id="sortbtn" tabindex="3">Trier par <i class="fas fa-chevron-down"></i></button>
+            <div class="sort" id="sort">
+                <a href="#" title="popularité" id="popularité" tabindex="3">Popularité</a>
+                <a href="#" title="date" id="date" tabindex="3">Date</a>
+                <a href="#" title="titre" id="titre" tabindex="3">Titre</a>
+            </div>
         </div>
         </div>
         <div class="media-section"></div>
@@ -81,6 +82,7 @@
     <script src="./scripts/utils/globals.js"></script>
     <script src="./scripts/pages/photographer.js"></script>
     <script src="./scripts/factories/photographer.js"></script>
+
 </body>
 
 </html>

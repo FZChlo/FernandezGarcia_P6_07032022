@@ -222,6 +222,10 @@ textarea {
     border-radius: 5px;
 }
 
+.sortbtn i {
+    padding-left: 10px;
+}
+
 .selectMenu {
     position: flex;
     display: block;
@@ -239,6 +243,7 @@ textarea {
 
 .sort a {
     color: white;
+    width: 7.6rem;
     padding: 14px 18px;
     display: block;
 }
