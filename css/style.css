@@ -1,76 +1,45 @@
-@import url("photographer.css");
-:focus {
-    border: 2px solid black;
-}
+@import url("home.css");
+@import url("form.css");
+@import url("select.css");
+@import url("lightbox.css");
+@import url("media.css");
+@import url("photographerPage.css");
 
-body {
-    font-family: "DM Sans", sans-serif;
-    margin: 0 100px;
-}
-
-body>header {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-    height: 90px;
-}
-
-header h1 {
-    color: #901c1c;
-    font-weight: normal;
-}
-
-.logo {
-    height: 50px;
-}
-
-.photographer_section {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    gap: 70px;
-    margin-top: 100px;
-}
-
-.photographer_section article {
-    justify-self: center;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-}
-
-.photographer_section article h2 {
-    color: #d3573c;
-    font-size: 36px;
-    text-align: center;
-    margin-bottom: 0.1rem;
-}
-
-.photographer_section article img {
-    display: flex;
-    margin: auto;
-    height: 200px;
-    width: 200px;
-    border-radius: 98px;
-    object-fit: cover;
-}
-
-.photographer_section .adresse {
-    color: #901c1c;
-    font-size: 20px;
-    margin: 0.5rem;
-}
-
-.photographer_section .tagline {
-    margin: 0.2rem;
-}
-
-.photographer_section .price {
-    color: #525252;
-    margin: 0.2rem;
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
 }
 
 a {
-    text-decoration: none;
+  text-decoration: none;
+}
+ul {
+  list-style: none;
+}
+button {
+  border: 0;
+}
+
+body {
+  font-family: "DM Sans", sans-serif;
+  margin: 0;
+}
+
+header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  height: 90px;
+}
+
+h1 {
+  color: #901c1c;
+  margin-right: 100px;
+}
+
+.logo {
+  height: 50px;
+  margin-left: 100px;
 }
